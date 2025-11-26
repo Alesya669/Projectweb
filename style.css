@@ -1,0 +1,830 @@
+/* === БАЗОВЫЕ СТИЛИ === */
+:root {
+    --dark-green: #424123;
+    --medium-brown: #80744C;
+    --light-beige: #E6DED3;
+    --warm-beige: #E8D1C1;
+    --error-color: #dc3545;
+    --success-color: #28a745;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-green);
+    background-color: var(--light-beige);
+}
+
+/* === HEADER === */
+header {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(66, 65, 35, 0.4), rgba(66, 65, 35, 0.6));
+}
+
+.header-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-align: center;
+    padding-top: 30vh;
+}
+
+.header-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.header-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.contact-btn {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    background: var(--warm-beige);
+    border: none;
+    border-radius: 5px;
+    color: var(--dark-green);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.3s;
+}
+
+.contact-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* === НАВИГАЦИЯ === */
+nav {
+    background-color: var(--dark-green);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.desktop-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.desktop-menu a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+    padding: 0.5rem 1rem;
+}
+
+.desktop-menu a:hover {
+    color: var(--warm-beige);
+}
+
+/* Выпадающее меню */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--medium-brown);
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid var(--dark-green);
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--dark-green);
+}
+
+/* Мобильное меню */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    height: 100vh;
+    background-color: var(--dark-green);
+    transition: left 0.3s ease-in-out;
+    z-index: 1001;
+    padding: 2rem;
+}
+
+.mobile-menu.open {
+    left: 0;
+}
+
+.mobile-menu-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.mobile-menu ul {
+    list-style: none;
+    margin-top: 2rem;
+}
+
+.mobile-menu li {
+    margin-bottom: 1rem;
+}
+
+.mobile-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: block;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--medium-brown);
+}
+
+/* === ОСНОВНОЙ КОНТЕНТ === */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--dark-green);
+    font-size: 2.5rem;
+}
+
+/* === РАЗДЕЛ "О НАС" === */
+.about-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.about-text h3 {
+    color: var(--dark-green);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.signature {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--warm-beige);
+    font-style: italic;
+}
+
+.signature strong {
+    color: var(--dark-green);
+}
+
+.about-image {
+    position: relative;
+}
+
+.placeholder-image {
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(135deg, var(--warm-beige), var(--medium-brown));
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+/* Слайдер */
+.slider {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+    background-color: var(--warm-beige);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+.slider-slides {
+    display: flex;
+    transition: transform 0.5s ease;
+    height: 100%;
+}
+
+.slider-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.slide-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(66, 65, 35, 0.8));
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+.slide-text h3 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.slide-text p {
+    font-size: 1.2rem;
+    color: var(--light-beige);
+    margin: 0;
+}
+
+.slider-prev,
+.slider-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.8);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 10;
+}
+
+.slider-prev:hover,
+.slider-next:hover {
+    background: white;
+}
+
+.slider-prev {
+    left: 20px;
+}
+
+.slider-next {
+    right: 20px;
+}
+
+/* Букеты */
+.bouquets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.bouquet-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.bouquet-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.15);
+}
+
+.bouquet-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.bouquet-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.bouquet-card:hover .bouquet-image img {
+    transform: scale(1.05);
+}
+
+.bouquet-info {
+    padding: 1.5rem;
+}
+
+.bouquet-info h3 {
+    color: var(--dark-green);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.bouquet-info p {
+    color: var(--medium-brown);
+    margin-bottom: 1rem;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--dark-green);
+    margin-bottom: 1rem;
+}
+
+.buy-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--dark-green);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.buy-btn:hover {
+    background-color: var(--medium-brown);
+}
+
+/* === ФОРМЫ === */
+.contact-form {
+    background-color: var(--warm-beige);
+    padding: 3rem;
+    border-radius: 15px;
+    margin-top: 2rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--dark-green);
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--medium-brown);
+    border-radius: 5px;
+    background-color: white;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--dark-green);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.checkbox-group input {
+    width: auto;
+    margin-right: 8px;
+    margin-top: 2px;
+}
+
+.checkbox-group label {
+    font-weight: normal;
+    font-size: 0.85rem;
+    line-height: 1.3;
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: var(--dark-green);
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: var(--medium-brown);
+}
+
+.message {
+    padding: 8px;
+    border-radius: 4px;
+    margin-top: 12px;
+    text-align: center;
+    display: none;
+    font-size: 0.85rem;
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.field-error {
+    color: #dc3545;
+    font-size: 0.75rem;
+    margin-top: 3px;
+}
+
+/* === МОДАЛЬНЫЕ ОКНА === */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: var(--light-beige);
+    margin: 5% auto;
+    padding: 2rem;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    animation: slideIn 0.3s;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.contacts-modal {
+    max-width: 600px;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-btn {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--dark-green);
+    background: none;
+    border: none;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-btn:hover {
+    color: var(--medium-brown);
+}
+
+.modal h2 {
+    color: var(--dark-green);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+/* === КОНТАКТЫ В МОДАЛЬНОМ ОКНЕ === */
+.contacts-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--warm-beige);
+    border-radius: 10px;
+}
+
+.contact-icon {
+    font-size: 1.5rem;
+    margin-top: 0.2rem;
+}
+
+.contact-details h3 {
+    color: var(--dark-green);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.contact-details p {
+    margin-bottom: 0.25rem;
+    color: var(--medium-brown);
+}
+
+.social-media h3 {
+    color: var(--dark-green);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.social-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--dark-green);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 2px solid var(--warm-beige);
+}
+
+.social-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.social-icon {
+    font-size: 1.2rem;
+}
+
+.map-placeholder {
+    margin-top: 1rem;
+}
+
+.map-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, var(--medium-brown), var(--dark-green));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+/* Сообщения */
+.message {
+    display: none;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.message.success {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: var(--success-color);
+    border: 1px solid var(--success-color);
+}
+
+.message.error {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: var(--error-color);
+    border: 1px solid var(--error-color);
+}
+
+/* Ошибки полей */
+.field-error {
+    color: var(--error-color);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+/* === FOOTER === */
+footer {
+    background-color: var(--dark-green);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+}
+
+/* === АДАПТИВНОСТЬ === */
+@media (max-width: 768px) {
+    .desktop-menu {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .header-content h1 {
+        font-size: 2rem;
+    }
+
+    .header-content p {
+        font-size: 1rem;
+    }
+
+    .container {
+        padding: 2rem 1rem;
+    }
+
+    .contact-form {
+        padding: 2rem 1rem;
+    }
+
+    .slider {
+        height: 300px;
+    }
+
+    .slide-text h3 {
+        font-size: 1.5rem;
+    }
+
+    .slide-text p {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .slider-prev,
+    .slider-next {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .modal-content {
+        margin: 10% auto;
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .social-links {
+        grid-template-columns: 1fr;
+    }
+
+    .contacts-modal {
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    .bouquets-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header-content {
+        padding-top: 25vh;
+    }
+
+    .checkbox-group {
+        align-items: flex-start;
+    }
+
+    .checkbox-group label {
+        font-size: 0.9rem;
+    }
+
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-icon {
+        align-self: center;
+    }
+}
