@@ -5,22 +5,36 @@ const mobileMenuClose = document.querySelector('.mobile-menu-close');
 
 function openMobileMenu() {
     mobileMenu.classList.add('open');
-    document.body.style.overflow = 'hidden';
+    document.body.classList.add('menu-open'); // Используем класс вместо style
 }
 
 function closeMobileMenu() {
     mobileMenu.classList.remove('open');
-    document.body.style.overflow = '';
+    document.body.classList.remove('menu-open');
 }
 
-mobileMenuBtn.addEventListener('click', openMobileMenu);
-mobileMenuClose.addEventListener('click', closeMobileMenu);
+// Обработчики событий
+if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', openMobileMenu);
+}
+
+if (mobileMenuClose) {
+    mobileMenuClose.addEventListener('click', closeMobileMenu);
+}
 
 // Закрытие мобильного меню при клике на ссылку
 document.querySelectorAll('.mobile-menu a').forEach(link => {
     link.addEventListener('click', closeMobileMenu);
 });
 
+// Закрытие при клике вне меню
+document.addEventListener('click', (e) => {
+    if (mobileMenu.classList.contains('open') &&
+        !mobileMenu.contains(e.target) &&
+        !mobileMenuBtn.contains(e.target)) {
+        closeMobileMenu();
+    }
+});
 // === СЛАЙДЕР ===
 let currentSlide = 0;
 let slideInterval;

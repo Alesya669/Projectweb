@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Silent Pollen - Цветочный магазин</title>
     <link rel="stylesheet" href="style.css">
+
     <style>
         /* Свойства закрытой кнопки */
         .nav-contacts-button {
@@ -91,7 +92,7 @@
 <header id="home">
     <!-- COMMIT: Вставить video.mp4 -->
     <video class="hero-video" autoplay muted loop>
-        <source src="video.mp4" type="video/mp4">
+        <source src="video1.mp4" type="video/mp4">
         Ваш браузер не поддерживает видео.
     </video>
     <div class="video-overlay"></div>
@@ -99,7 +100,7 @@
     <div class="header-content">
         <h1>FloraBloom</h1>
         <p>Искусство в каждом лепестке</p>
-        <button class="contact-btn" id="openModalBtn">
+        <button class="contact-btn" href="#feedbackFormAnchor">
             Связь с нами
         </button>
     </div>
@@ -216,46 +217,10 @@
             </div>
         </div>
     </section>
-
-    <!-- Форма обратной связи в подвале -->
-    <section class="container" id="contact">
-        <h2 class="section-title">Свяжитесь с нами</h2>
-        <form class="contact-form" id="main-contact-form">
-            <div class="form-group">
-                <label for="name">Имя *</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-
-            <div class="form-group">
-                <label for="email">Email *</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-
-            <div class="form-group">
-                <label for="phone">Телефон</label>
-                <input type="tel" id="phone" name="phone">
-            </div>
-
-            <div class="form-group">
-                <label for="organization">Организация</label>
-                <input type="text" id="organization" name="organization">
-            </div>
-
-            <div class="form-group">
-                <label for="message">Сообщение *</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
-
-            <div class="checkbox-group">
-                <input type="checkbox" id="privacyPolicy" name="privacyPolicy" required>
-                <label for="privacyPolicy">Я согласен с политикой обработки персональных данных *</label>
-            </div>
-
-            <button type="submit" class="submit-btn">Отправить</button>
-        </form>
-    </section>
 </main>
+    <!-- Форма обратной связи в подвале -->
 
+<div id="feedbackFormAnchor"></div>
 <!-- Модальное окно формы обратной связи -->
 <div class="modal" id="feedbackModal">
     <div class="modal-content">
@@ -324,6 +289,6 @@
         });
     });
 </script>
-<script src="script.js"></script>
+<script src="sctript.js"></script>
 </body>
 </html>
