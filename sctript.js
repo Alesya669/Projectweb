@@ -1,19 +1,24 @@
-// === МОБИЛЬНОЕ МЕНЮ ===
+
+
+
+
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 const mobileMenu = document.querySelector('.mobile-menu');
 const mobileMenuClose = document.querySelector('.mobile-menu-close');
 
 function openMobileMenu() {
     mobileMenu.classList.add('open');
-    document.body.classList.add('menu-open'); // Используем класс вместо style
+    mobileMenuBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
 }
 
 function closeMobileMenu() {
     mobileMenu.classList.remove('open');
-    document.body.classList.remove('menu-open');
+    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
 }
 
-// Обработчики событий
+// Убедитесь что обработчики добавлены
 if (mobileMenuBtn) {
     mobileMenuBtn.addEventListener('click', openMobileMenu);
 }
@@ -22,16 +27,20 @@ if (mobileMenuClose) {
     mobileMenuClose.addEventListener('click', closeMobileMenu);
 }
 
-// Закрытие мобильного меню при клике на ссылку
+// Закрытие меню при клике на ссылку
 document.querySelectorAll('.mobile-menu a').forEach(link => {
-    link.addEventListener('click', closeMobileMenu);
+    link.addEventListener('click', function() {
+        closeMobileMenu();
+    });
 });
 
-// Закрытие при клике вне меню
-document.addEventListener('click', (e) => {
-    if (mobileMenu.classList.contains('open') &&
-        !mobileMenu.contains(e.target) &&
-        !mobileMenuBtn.contains(e.target)) {
+// Закрытие меню при клике вне его области
+document.addEventListener('click', function(event) {
+    if (mobileMenu && mobileMenuBtn &&
+        !mobileMenu.contains(event.target) &&
+        !mobileMenuBtn.contains(event.target) &&
+        mobileMenu.classList.contains('open')) {
+
         closeMobileMenu();
     }
 });

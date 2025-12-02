@@ -157,6 +157,8 @@ nav {
     background-color: var(--dark-green);
 }
 
+
+
 /* Мобильное меню */
 .mobile-menu-btn {
     display: none;
@@ -213,6 +215,8 @@ nav {
     padding: 0.5rem 0;
     border-bottom: 1px solid var(--medium-brown);
 }
+
+
 
 /* === ОСНОВНОЙ КОНТЕНТ === */
 .container {
@@ -775,18 +779,9 @@ textarea {
 
 
 
-/* === FOOTER === */
-footer {
-    background-color: var(--dark-green);
-    color: white;
-    text-align: center;
-    padding: 2rem;
-    margin-top: 4rem;
-}
 
-footer p {
-    margin-bottom: 0.5rem;
-}
+
+
 
 
 /* === АДАПТИВНОСТЬ === */

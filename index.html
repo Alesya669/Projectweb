@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="rus">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* Свойства закрытой кнопки */
+
         .nav-contacts-button {
             width: 100px;
             height: 25px;
@@ -16,13 +16,12 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            /* CSS-трансформация, все свойства будут плавно меняться одну секунду */
+
             transition: all 1s ease;
             position: relative;
             overflow: hidden;
         }
 
-        /* Свойства раскрытой кнопки */
         .nav-contacts-button.opened {
             background-color: #E8D1C1;
             color: black;
@@ -30,7 +29,7 @@
             width: 300px;
         }
 
-        /* Контактная информация */
+
         .contact-info {
             display: none;
             padding: 20px;
@@ -73,7 +72,7 @@
             </li>
         </ul>
 
-        <button class="mobile-menu-btn">☰</button>
+        <button class="mobile-menu-btn" aria-label="Открыть меню" aria-expanded="false">☰</button>
     </div>
 </nav>
 
@@ -98,9 +97,9 @@
     <div class="video-overlay"></div>
 
     <div class="header-content">
-        <h1>FloraBloom</h1>
-        <p>Искусство в каждом лепестке</p>
-        <button class="contact-btn" href="#feedbackFormAnchor">
+        <h1>The Silent Pollen</h1>
+        <p>Магия в каждом лепестке</p>
+        <button class="contact-btn" id="openModalBtn">
             Связь с нами
         </button>
     </div>
@@ -182,7 +181,7 @@
                     <!-- COMMIT: Вставить фото букета 1 -->
                     <img src="bouquet1.jpg" alt="Букет Нежность - белые розы и гипсофила">
                 </div>
-                <div class="bouquet-info">
+                <div class="bouquet-info" id="mixed">
                     <h3>Букет "Нежность"</h3>
                     <p>Белые розы и гипсофила</p>
                     <p class="price">2 500 ₽</p>
@@ -195,7 +194,7 @@
                     <!-- COMMIT: Вставить фото букета 2 -->
                     <img src="bouquet2.jpg" alt="Букет Страсть - красные розы и альстромерии">
                 </div>
-                <div class="bouquet-info">
+                <div class="bouquet-info" id="roses">
                     <h3>Букет "Страсть"</h3>
                     <p>Красные розы и альстромерии</p>
                     <p class="price">3 200 ₽</p>
@@ -208,7 +207,7 @@
                     <!-- COMMIT: Вставить фото букета 3 -->
                     <img src="bouquet3.jpg" alt="Букет Весна - тюльпаны и нарциссы">
                 </div>
-                <div class="bouquet-info">
+                <div class="bouquet-info" id="tulips">
                     <h3>Букет "Весна"</h3>
                     <p>Тюльпаны и нарциссы</p>
                     <p class="price">1 800 ₽</p>
@@ -220,14 +219,13 @@
 </main>
     <!-- Форма обратной связи в подвале -->
 
-<div id="feedbackFormAnchor"></div>
-<!-- Модальное окно формы обратной связи -->
-<div class="modal" id="feedbackModal">
+
+<div class="modal" id="feedbackModal" >
     <div class="modal-content">
         <span class="close-btn" id="closeModalBtn">&times;</span>
         <h2>Форма обратной связи</h2>
         <form id="feedbackForm">
-            <div class="form-group">
+            <div class="form-group" id="feedback">
                 <label for="fullName">ФИО *</label>
                 <input type="text" id="fullName" name="fullName" required>
             </div>
@@ -258,18 +256,29 @@
             </div>
 
             <button type="submit" class="submit-btn">Отправить</button>
-        </form>
 
-        <div class="message" id="responseMessage"></div>
+            <div class="message" id="responseMessage"></div>
+        </form>
     </div>
 </div>
-
 <!-- Подвал -->
-<footer>
-    <p>The Silent Pollen &copy; 2025.</p>
-    <p>г. Краснодар, ул. Промышленная, 4</p>
-</footer>
+<footer id="site-footer" style="
+    background-color: #424123;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    width: 100%;
+    margin-top: 50px;
+">
+    <div style="
+        max-width: 1200px;
+        margin: 0 auto;
+    ">
+        <p style="margin: 10px 0; font-size: 16px; line-height: 1.6;">The Silent Pollen &copy; 2025.</p>
+        <p style="margin: 10px 0; font-size: 16px; line-height: 1.6;"> Краснодар, ул. Промышленная, 4</p>
 
+    </div>
+</footer>
 <script>
     // Функция для переключения контактов
     function toggleContacts() {
